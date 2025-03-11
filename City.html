@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Select a State</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .city {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .city img {
+            width: 150px;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .city:hover {
+            transform: scale(1.1);
+        }
+        .city-name {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Please Select a State</h1>
+        <div class="city" onclick="selectCity('Gujrat')">
+            <img src=https://visitsou.com/wp-content/uploads/15-The-Statue-of-Unity-A-Tribute-to-Unity-and-Heritage.jpg" alt="Gujrat">
+            <div class="city-name">Gujrat</div>
+        </div>
+        <div class="city" onclick="selectCity('Rajasthan')">
+            <img src="https://static.toiimg.com/photo/66220607/hawa-mahal.jpg?width=748&resize=4" alt="Rajasthan">
+            <div class="city-name">Rajasthan</div>
+        </div>
+        <div class="city" onclick="selectCity('Mumbai')">
+            <img src="https://www.cfmedia.vfmleonardo.com/imageRepo/7/0/104/36/7/TMP_Exterior_-_1200x628_S.jpg" alt="Mumbai">
+            <div class="city-name">Mumbai</div>
+        </div>
+        <div class="city" onclick="selectCity('Delhi')">
+            <img src="https://wallpaperaccess.com/full/1896134.jpg" alt="Delhi">
+            <div class="city-name">Delhi</div>
+        </div>
+        <div class="city" onclick="selectCity('Madhyapradesh')">
+            <img src="https://static.toiimg.com/photo/msid-94055833,width-96,height-65.cms" alt="Madhyapradesh">
+            <div class="city-name">Madhyapradesh</div>
+        </div>
+        <div class="city" onclick="selectCity('Goa')">
+            <img src="https://cdn.audleytravel.com/2803/1999/79/15984870-goa-beach-goa.jpg" alt="Goa">
+            <div class="city-name">Goa</div>
+        </div>
+        <div class="city" onclick="selectCity('Uttarpradesh')">
+            <img src="https://i.natgeofe.com/n/8eba070d-14e5-4d07-8bab-9db774029063/93080_4x3.jpg" alt="Uttarpradesh">
+            <div class="city-name">Uttarpradesh</div>
+        </div>
+        <div class="city" onclick="selectCity('Hyderabad')">
+            <img src="https://costoffliving.com/wp-content/uploads/2019/07/charminar.jpg" alt="Hyderabad">
+            <div class="city-name">Hyderabad</div>
+        </div>
+    </div>
+    <script>
+        function selectCity(cityName) {
+            alert('You selected ' + cityName);
+        }
+    </script>
+</body>
+</html></div>

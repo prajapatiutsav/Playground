@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Rent Cloth</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #ae6464;
+            color: rgb(0, 0, 0);
+            padding: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .cart-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+        }
+        .cart-item img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .item-details {
+            flex-grow: 1;
+        }
+        .cart-summary {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            margin-top: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        .checkout-btn {
+            background-color: #333;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .checkout-btn:hover {
+            background-color: #000000f5;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+    <header>
+        <h1>Rent Cloth</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Cart</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        
+        <h2>Your Cart</h2>
+  </section></section></section>      <div class="cart-container">
+            <div class="cart-item">
+                <img src="https://images.pexels.com/photos/2850487/pexels-photo-2850487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Dress 1">
+                <div class="item-details">
+                    <h3>Elegant Dress</h3>
+                    <p>Size: M</p>
+                    <p>Rental Price: 550rupees/Day</p>
+                    <label for="quantity1">Quantity:</label>
+                    <input type="number" id="quantity1" name="quantity1" min="1" value="1">
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="https://images.pexels.com/photos/3353621/pexels-photo-3353621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Suit 1">
+                <div class="item-details">
+                    <h3>Classic Suit</h3>
+                    <p>Size: L</p>
+                    <p>Rental Price: 500 rupees/Day</p>
+                    <label for="quantity2">Quantity:</label>
+                    <input type="number" id="quantity2" name="quantity2" min="1" value="1">
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <h3>Summary</h3>
+            <script>
+                function updateCartSummary() {
+                    const quantities = document.querySelectorAll('input[type="number"]');
+                    let totalItems = 0;
+                    let totalPrice = 0;
+
+                    quantities.forEach(quantity => {
+                        const itemPrice = parseFloat(quantity.closest('.cart-item').querySelector('p:nth-of-type(2)').textContent.replace('Rental Price: ', '').replace('rupees/Day', ''));
+                        totalItems += parseInt(quantity.value);
+                        totalPrice += itemPrice * parseInt(quantity.value);
+                    });
+
+                    document.getElementById('total-items').textContent = totalItems;
+                    document.getElementById('total-price').textContent = totalPrice;
+                }
+
+                document.querySelectorAll('input[type="number"]').forEach(input => {
+                    input.addEventListener('change', updateCartSummary);
+                });
+
+                document.querySelectorAll('.remove-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        event.target.closest('.cart-item').remove();
+                        updateCartSummary();
+                    });
+                });
+
+                updateCartSummary();
+            </script>
+            <p>Total Items: <span id="total-items"></span></p>
+            <p>Total Price: $<span id="total-price"></span></p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+            <script>
+                document.querySelector('.checkout-btn').addEventListener('click', () => {
+                    window.location.href = 'payment.html';
+                });
+            </script>
+            <script>
+                document.querySelector('.checkout-btn').addEventListener('click', () => {
+                    const totalPrice = document.getElementById('total-price').textContent;
+                    localStorage.setItem('totalPrice', totalPrice);
+                    window.location.href = 'Payment.html';
+                });
+            </script>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2023 Rent Cloth. All rights reserved.</p>
+    </footer>
+</body>
+</html></div>

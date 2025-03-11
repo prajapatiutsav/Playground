@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Cloth Shop</title>
+    <style>
+         body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+        }
+        .header {
+            background-color: #ffffff15;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 5px;
+        }
+        .card {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            width: 300px;
+            backdrop-filter: blur(10px);
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+;
+        }
+        .card p { /*for the discription of the */
+            color: #000000
+        }
+        .card .price { 
+            font-size: 1.7em;
+            color: #000000;
+        }
+        .card button { /*for the rent now button */
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .card button:hover { /* when touch the rent now button*/
+            background-color: #218838;    
+        }
+    </style>
+</head>
+<body>
+<!-- GO TO CART BUTTON -->
+    <div class="header">
+        <h1>Style Borrow</h1>
+        <button onclick="window.location.href='cart.html';" 
+        style="padding: 10px 20px; border-radius: 5px; 
+        background: linear-gradient(to right, #ff7e5f, #feb47b); 
+        color: #fff; 
+        border: none;
+        cursor: pointer;
+        margin: 5px;">Go to Cart</button>
+        
+<!-- SUBSCRIPTION BUTTON -->
+        <button onclick="window.location.href='subscription.html';" 
+        style="padding: 10px 20px; border-radius: 5px; 
+        background: linear-gradient(to right, #43cea2, #185a9d); 
+        color: #fff; 
+        border: none;
+        cursor: pointer;
+        text-align: right;
+        margin: 5px;">Subscription-Based Rentals</button>
+    </div>
+    </div>
+    
+<!-- THIS IS FOR THE SEARCH BOX -->
+    <div style="display: flex;
+     justify-content: center;
+      align-items: flex-start;"></div>
+        <div id="searchbox" style="background-color: #ffffff;
+         border: 1px solid #ddd; border-radius: 10px;
+          padding: 20px; width: 400px;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div id="reviews">
+                <!-- Reviews will appear here -->
+            </div>
+            <div style="text-align: center; margin: 20px;"></div>
+            <input type="text" id="searchInput" placeholder="Search for clothes..." style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #000000;">
+            <button onclick="searchClothes()" style="padding: 10px; border-radius: 5px; background: linear-gradient(to right, #6a11cb, #2575fc); color: #ffffff; border: none; cursor: pointer;">Search</button>
+        </div>
+        <div class="container">
+            <!-- Cards will go here -->
+        </div>
+    <script>
+        function searchClothes() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+    <style>
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .card {
+            background-color: #444;
+            border-color: #555;
+        }
+        .dark-mode .card p {
+            color: #ccc;
+        }
+        .dark-mode .card .price {
+            color: #fff;
+        }
+        .dark-mode .card button {
+            background-color: #555;
+        }
+        .dark-mode .card button:hover {
+            background-color: #666;
+        }
+    </style>
+    <div style="text-align: center; margin: 20px;">
+
+    <div class="container">
+        <div class="card">
+            <img src="https://officialroyalwedding2011.org/wp-content/uploads/2019/07/Best-wedding-dresses-from-300-3-758x1024.jpg" alt="Cloth 1">
+            <h3>Bridal fit</h3>
+            <p>Description of Cloth 1</p>
+            <p class="price">4500 rupees/day</p>
+            <button onclick="purchase('Bridal fit')">Rent Now</button>
+        </div>
+        <div class="card">
+            <img src="https://www.nihalfashions.com/blog/wp-content/uploads/2016/12/4-720x1024.jpg" alt="Cloth 2">
+            <h3>Groom fit</h3>
+            <p>Description of Cloth 2</p>
+            <p class="price">5500 rupees/day</p>
+            <button onclick="purchase('>Groom fit')">Rent Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.pexels.com/photos/2850487/pexels-photo-2850487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <h3>Cut top</h3>
+            <p>blue cut top with white inner. very cute and comfortable to wear.</p>
+            <p class="price">450 rupees/day</p>
+            <button onclick="purchase('Cut top')">Rent Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.pexels.com/photos/3353621/pexels-photo-3353621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <h3>Full sleave top</h3>
+            <p>green top with very nice material and comfortable.</p>
+            <p class="price">550 rupees/day</p>
+            <button onclick="purchase('Full sleave top')">Rent Now</button>
+        </div>
+        <!-- Add more c
+         ards as needed -->
+    </div>
+    <script>
+        function purchase(item) {
+            alert(item + ' has been added to your cart!');
+        }
+    </script>
+</body>
+</html></div>
+</body>
+<div id="suggestionBox" style="background-color: #ffffff; border: 1px solid #19325a; border-radius: 10px; padding: 20px; width: 80%; margin: 20px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="text-align: center; color: #333;">User Suggestions & Reviews</h2>
+    <div id="suggestions" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
+        <!-- Suggestions will appear here -->
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <input type="text" id="suggestionInput" placeholder="Type your suggestion or review..." style="padding: 10px; width: 80%; border-radius: 5px; border: 1px solid #ddd;">
+        <button onclick="submitSuggestion()" style="padding: 10px; border-radius: 5px;background: linear-gradient(to right, #6a11cb, #2575fc); color: #fff; border: none; cursor: pointer;">Submit</button>
+    </div>
+</div>
+
+<script>
+    function submitSuggestion() {
+        const input = document.getElementById('suggestionInput');
+        const suggestion = input.value.trim();
+        if (suggestion) {
+            const suggestionsContainer = document.getElementById('suggestions');
+            const suggestionElement = document.createElement('div');
+            suggestionElement.textContent = suggestion;
+            suggestionElement.style.padding = '10px';
+            suggestionElement.style.margin = '10px 0';
+            suggestionElement.style.backgroundColor = '#f9f9f9';
+            suggestionElement.style.borderRadius = '5px';
+            suggestionElement.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
+            suggestionsContainer.appendChild(suggestionElement);
+            suggestionsContainer.scrollTop = suggestionsContainer.scrollHeight;
+            input.value = '';
+        }
+    }
+</script></div>
+<div>
+      <a href="about_us.html" style="padding: 10px 20px;
+       border-radius: 5px;
+       color: #fff; border: none;
+       cursor: pointer;
+       margin: 5px;">About Us</a>
+</div>

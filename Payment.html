@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Clothes Payment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #6a82fb;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .container button:hover {
+            background: #fc5c7d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <p>Total Purchase: <span id="totalPurchase">$0.00</span></p>
+        <p>Total Amount: <span id="totalAmount">$0.00</span></p>
+        <input type="text" id="cardNumber" placeholder="Card Number">
+        <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)">
+        <input type="text" id="cvv" placeholder="CVV">
+        <button onclick="makePayment()">Pay Now</button>
+    </div>
+
+    <script>
+        
+        const totalPurchase = 100;
+        const totalAmount = totalPurchase + (totalPurchase * 0.2); // Adding 20% tax
+
+        document.getElementById('totalPurchase').innerText = `$${totalPurchase.toFixed(2)}`;
+        document.getElementById('totalAmount').innerText = `$${totalAmount.toFixed(2)}`;
+
+        function makePayment() {
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (cardNumber && expiryDate && cvv) {
+                alert('Payment Successful!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+</html></div>
